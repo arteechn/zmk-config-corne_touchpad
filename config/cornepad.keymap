@@ -5,8 +5,11 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
     combos {
@@ -16,12 +19,37 @@
             bindings = <&kp ENTER>;
             key-positions = <19 20 21>;
         };
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <1 2>;
+        };
+
+        enye {
+            bindings = <&kp RA(N)>;
+            key-positions = <30 20>;
+        };
+
+        folder {
+            bindings = <&kp LG(E)>;
+            key-positions = <37 3 2>;
+        };
+
+        mac_copy {
+            bindings = <&kp LG(C)>;
+            key-positions = <27 26>;
+        };
+
+        mac_paste {
+            bindings = <&kp LG(V)>;
+            key-positions = <27 28>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        QWERty {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -34,9 +62,11 @@
 &mt LSHFT CAPSLOCK  &kp Z  &kp X  &kp C         &kp V  &kp B        &kp N          &kp M  &kp COMMA       &kp DOT  &kp FSLH  &kp BACKSLASH
                                   &kp LEFT_ALT  &mo 2  &kp SPACE    &kp BACKSPACE  &mo 1  &kp LEFT_SHIFT
             >;
+
+            label = "QWERty";
         };
 
-        lower_layer {
+        NumSym {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -49,9 +79,11 @@
 &mt LEFT_SHIFT GRAVE  &kp EXCL   &kp AT     &kp HASH      &kp DOLLAR  &kp PERCENT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LESS_THAN   &kp GREATER_THAN  &kp QUESTION  &kp AMPERSAND
                                             &kp LEFT_GUI  &trans      &trans         &trans                &trans                 &trans
             >;
+
+            label = "NumSym";
         };
 
-        raise_layer {
+        Movement {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -64,15 +96,19 @@
 &trans    &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans    &kp HOME          &kp END         &trans  &trans  &trans  &kp LC(LS(ESCAPE))
                                 &trans     &trans     &trans    &kp DEL           &trans          &trans
             >;
+
+            label = "Movement";
         };
 
-        layer_3 {
+        BLE_Lighting {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &trans  &trans            &kp F1      &kp F2  &kp F3  &kp F4   &kp F5           &kp F6
+&trans  &trans      &trans      &trans      &trans  &trans            &kp F7      &kp F8  &kp F9  &kp F10  &kp F11          &kp F12
+&trans  &trans      &trans      &trans      &trans  &bt BT_CLR_ALL    &bl BL_TOG  &trans  &trans  &trans   &rgb_ug RGB_EFF  &rgb_ug RGB_TOG
+                                &trans      &trans  &trans            &trans      &trans  &trans
             >;
+
+            label = "BLE_Lighting";
         };
 
         layer_4 {
@@ -91,6 +127,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
             >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        BLE {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
