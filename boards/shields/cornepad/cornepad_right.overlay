@@ -125,8 +125,8 @@
         dr-gpios = <&gpio1 04 (GPIO_ACTIVE_HIGH)>;
 
         sensitivity = "1x";
-        sleep;
-        // no-taps;
+        // sleep;
+        no-taps;
     };
 };
 //INPUT_TRANSFORM_XY_SWAP
