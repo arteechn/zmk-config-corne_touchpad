@@ -4,8 +4,8 @@ manifest:
     url-base: https://github.com/zmkfirmware
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
-   # - name: oleksandrmaslov
-    #url-base: https://github.com/oleksandrmaslov  
+  - name: oleksandrmaslov
+    url-base: https://github.com/oleksandrmaslov  
   projects:
   - name: zmk
     remote: zmkfirmware
@@ -15,8 +15,8 @@ manifest:
     url: https://github.com/petejohanson/cirque-input-module
     revision: main
     path: modules/cirque-input-module
- # - name: zmk-pointing-acceleration
-  #  remote: oleksandrmaslov
-   # revision: main
+  - name: zmk-pointing-acceleration
+    remote: oleksandrmaslov
+    revision: main
   self:
     path: config
