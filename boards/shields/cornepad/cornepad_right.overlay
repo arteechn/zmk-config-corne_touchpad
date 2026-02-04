@@ -13,8 +13,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#include <input/processors.dtsi>
-#include <behaviors/input_gestures_accel.dtsi>              // MOUSE ACCELERATION??
+//#include <input/processors.dtsi>
+//#include <behaviors/input_gestures_accel.dtsi>              // MOUSE ACCELERATION??
 
 
 #include <dt-bindings/led/led.h>
@@ -140,8 +140,8 @@
         device = <&glidepoint>;
         input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-        <&zip_xy_scaler 3 1>,
-        <&pointer_accel>;
+        <&zip_xy_scaler 3 1>;
+        //<&pointer_accel>;
     };
           scroller {
         //layers = <SCROLL>;
