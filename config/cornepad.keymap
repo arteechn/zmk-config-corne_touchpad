@@ -91,9 +91,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&mkp MB3  &trans     &mkp RCLK  &kp UP     &mkp LCLK  &trans    &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans  &trans  &trans  &trans
-&trans    &trans     &kp LEFT   &kp DOWN   &kp RIGHT  &trans    &kp PG_UP         &kp PG_DN       &trans  &trans  &trans  &trans
-&trans    &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans    &kp HOME          &kp END         &trans  &trans  &trans  &kp LC(LS(ESCAPE))
+&mkp MB3  &trans     &mkp RCLK  &kp UP     &mkp LCLK  &trans    &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans  &kp LG(LS(T))  &kp LG(LS(S))  &trans
+&trans    &trans     &kp LEFT   &kp DOWN   &kp RIGHT  &trans    &kp PG_UP         &kp PG_DN       &trans  &kp LG(L)      &trans         &trans
+&trans    &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans    &kp HOME          &kp END         &trans  &trans         &trans         &kp LC(LS(ESCAPE))
                                 &trans     &trans     &trans    &kp DEL           &trans          &trans
             >;
 
